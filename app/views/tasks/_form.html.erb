@@ -4,22 +4,24 @@
       <% if task.errors.any? %>
         <div id="error_explanation">
           <ul>
-            <% task.errors.full_tasks.each do |task| %>
+            <% task.errors.full_messages.each do |task| %>
               <li><%= task %></li>
             <% end %>
           </ul>
         </div>
       <% end %>
     
-      <div class="form-group">
-      <%= f.label :status, 'ステータス' %>
-      <%= f.text_field :status %>
-      </div>
+    <table class="table table-bordered">
+      <tr>
+      <th class="text-center"><%= f.label :status, 'ステータス' %></th>
+      <th class="text-center"><%= f.text_field :status %></th>
+      </tr>
       
-    <div class="form-group">
-      <%= f.label :content, 'タスク' %>
-      <%= f.text_field :content %>
-    </div>
+      <tr>
+      <th class="text-center"><%= f.label :content, 'タスク' %></th>
+      <th class="text-center"> <%= f.text_field :content %></th>
+      </tr>
+      </table>
     
       <%= f.submit '投稿' %>
     <% end %>
